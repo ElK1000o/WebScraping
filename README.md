@@ -6,7 +6,7 @@ Fecha: '26-06-2024'
 
 ### Introducción
 
-Este repositorio corresponde a trabajo autónomo intentando recuperar un listado de productos y sus respectivos precios desde el sitio web de [Supermercado Jumbo](https://www.jumbo.cl). En este caso corresponde a los productos disponibles en la sección de lacteos a día de hoy 26-06-2024.
+Este repositorio corresponde a trabajo autónomo intentando recuperar un listado de productos y sus respectivos precios desde el sitio web de [Supermercado Jumbo](https://www.jumbo.cl "Jumbo"). En este caso corresponde a los productos disponibles en la sección de lacteos a día de hoy 26-06-2024.
 
 ### Contenido del Repositorio
 
