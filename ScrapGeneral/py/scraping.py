@@ -195,7 +195,7 @@ def agregar_seccion_html():
         system("pause")
         return
     
-    ver_formato = input("¿Desea ver el formato del resultado del request para elegir la sección/clave?\nEscriba 'si' para ver el formato (de lo contrario avanzará a agregar): ").lower()
+    ver_formato = input("¿Desea ver el formato del resultado del request para elegir la sección/clave?\nEscriba 'si' para ver el formato (de lo contrario avanzará a agregar)\n\n-> ").lower()
     if ver_formato == "si":
         url = urls[0]
         mostrar_formato_respuesta(url, "html")
@@ -280,7 +280,7 @@ def agregar_clave_json():
         system("pause")
         return
     
-    ver_formato = input("¿Desea ver el formato del resultado del request para elegir la clave?\nEscriba 'si' para ver el formato (de lo contrario avanzará a agregar): ").lower()
+    ver_formato = input("¿Desea ver el formato del resultado del request para elegir la clave?\nEscriba 'si' para ver el formato (de lo contrario avanzará a agregar)\n\n-> ").lower()
     if ver_formato == "si":
         url = urls[0]
         mostrar_formato_respuesta(url, "json")
@@ -364,7 +364,7 @@ def iniciar_scraping():
                     pbar.update(1)
 
         elif formato == "json":
-            if not secciones_json:
+            if not claves_json:
                 print("\nNo hay claves JSON agregadas para scrapear.")
                 system("pause")
                 return
@@ -377,13 +377,13 @@ def iniciar_scraping():
                     json_data = resp.json()
 
                 
-                    row = {seccion: [] for seccion in secciones_json}
-                    for seccion in secciones_json:
-                        items = obtener_valores_json(json_data, seccion)
+                    row = {clave: [] for clave in claves_json}
+                    for clave in claves_json:
+                        items = obtener_valores_json(json_data, clave)
                         if items:
-                            row[seccion].extend(items)
+                            row[clave].extend(items)
                         else:
-                            print(f"La clave '{seccion}' no se encontró en el JSON de {url}.")
+                            print(f"La clave '{clave}' no se encontró en el JSON de {url}.")
                     data.append(row)
                     pbar.update(1)
 
@@ -425,6 +425,8 @@ def guardar_datos():
         if nombre == '':
             menu()
             return
+        system('cls')
+        print(f'\nNombre del archivo: {nombre}\n')
         formato = input("\nIngrese el formato de archivo (csv, xlsx, ambos) (Enter para volver al menú)\n\n-> ").lower()
         if formato == '':
             menu()
@@ -432,7 +434,8 @@ def guardar_datos():
         system('cls')
         try:
             if formato in ["csv", "xlsx", "ambos"]:
-                output_dir = "output/data"
+                script_dir = path.dirname(path.abspath(__file__))
+                output_dir = path.join(script_dir, "..", "output", "data")
                 makedirs(output_dir, exist_ok=True)
 
                 headers_modificados = headers[:]
@@ -440,6 +443,7 @@ def guardar_datos():
                 print(f'\nNombre del archivo: {nombre}\n')
 
                 headers_custom = input("¿Desea agregar encabezados personalizados a las columnas? (si/no)\n\n-> ").lower()
+                system('cls')
                 if headers_custom == "si":
                     print('')
                     for idx, header in enumerate(headers_modificados):
@@ -448,7 +452,8 @@ def guardar_datos():
                     system('cls')
                 elif headers_custom == "no":
                     system('cls')
-                    print('')
+
+                print('')
 
                 df = pd.DataFrame(flat_data, columns=headers)
                 df.columns = headers_modificados
@@ -476,10 +481,10 @@ def guardar_datos():
 
 def limpiar_programa():
     system('cls')
-    global urls, secciones_html, secciones_json, data
+    global urls, secciones_html, claves_json, data
     urls = []
     secciones_html = []
-    secciones_json = []
+    claves_json = []
     data = []
     print("\nPrograma limpiado.\nSe han eliminado todas las URLs, secciones HTML y claves JSON.\nPuede realizar búsqueda nueva desde cero\n")
     system("pause")
