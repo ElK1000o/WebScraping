@@ -1,20 +1,49 @@
----
-Titulo: "WebScraping en Jumbo"
-Autor: "Camilo Riquelme Horta"
-Fecha: '26-06-2024'
----
+# WebScraping
 
-### Introducción
+## Descripción
+Este repositorio contiene herramientas para realizar scraping de datos desde sitios web en HTML o JSON. Incluye un caso específico para el scraping de productos lácteos del supermercado Jumbo y una herramienta general para scraping de HTML y JSON.
 
-Este repositorio corresponde a trabajo autónomo intentando recuperar un listado de productos y sus respectivos precios desde el sitio web de [Supermercado Jumbo](https://www.jumbo.cl "Jumbo"). En este caso corresponde a los productos disponibles en la sección de lacteos a día de hoy 26-06-2024.
-
-### Contenido del Repositorio
+## Estructura del Repositorio
 
 El repositorio está organizado en las siguientes carpetas:
 
-- **ipynb/**: Correspondientes a notebook para corroborar informarción obtenida.
+- **ScrapGeneral/**: Herramienta general para scraping de HTML y JSON.
+  - **py**: Carpeta que contiene el script principal.
+  - **README.md**: Instrucciones específicas para esta herramienta.
+  - **output/**: Carpeta para los datos generados por la herramienta general.
+    - **data/**: Datos en formato CSV o XLSX.
 
-- **py/**: Correspondiente a programa principal.
+- **jumbo_scraping/**: Scripts específicos para scraping de productos lácteos de Jumbo.
+  - **py**: Carpeta que contiene script en Python.
+  - **ipynb**: Carpeta que contiene notebook de Jupyter.
+  - **README.md**: Instrucciones específicas para este caso de uso.
+  - **output/**: Carpeta para los datos generados por los scripts de Jumbo.
+    - **data/**: Datos en formato CSV o XLSX.
 
-- **output/**: (Contiene resultados)
-	- **data/**: Corresponde a datos obtenidos en formato CSV o XLSX.
+## Requisitos
+
+- Python 3.x instalado.
+- Librerías necesarias:
+    - requests
+    - beautifulsoup4
+    - pandas
+    - jupyter
+    - tqdm
+
+## Instalación de Librerías
+
+Para instalar las librerías necesarias, ejecuta el siguiente comando:
+
+```bash
+pip install requests beautifulsoup4 pandas jupyter tqdm
+python.exe -m pip install --upgrade pip
+```
+
+## Uso
+
+Dentro de cada carpeta ScrapGeneral/ScrapJumbo encontrarás un archivo README.md con el contenido, uso y detalles específicos del cada herramienta.
+
+## Notas
+
+- Asegúrate de tener una conexión a internet estable para realizar scraping correctamente.
+- Los programas guardan los archivos de salida en las carpetas `output/data` correspondientes dentro de cada subcarpeta (`ScrapGeneral/output/data` y `ScrapJumbo/output/data`).
