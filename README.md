@@ -41,7 +41,7 @@ python.exe -m pip install --upgrade pip
 
 ## Uso
 
-Dentro de cada carpeta ScrapGeneral/ScrapJumbo encontrarás un archivo README.md con el contenido, uso y detalles específicos del cada herramienta.
+Dentro de cada carpeta 'ScrapGeneral' o 'ScrapJumbo' encontrarás un archivo README.md con el contenido, uso y detalles específicos del cada herramienta.
 
 ## Notas
 

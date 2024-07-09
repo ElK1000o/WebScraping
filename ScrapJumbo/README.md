@@ -21,4 +21,4 @@ El repositorio está organizado en las siguientes carpetas:
 
 ## Uso
 
-Ejecuta el script Productos_Jumbo.py ubicado en la carpeta py.
+Ejecuta el script `Productos_Jumbo.py` ubicado en la carpeta `py`.

@@ -23,7 +23,7 @@ python.exe -m pip install --upgrade pip
 2. **Ejecución del Programa:**
 
 - Clona o descarga el repositorio.
-- Ejecuta el archivo scraping.py ubicado en la carpeta py.
+- Ejecuta el archivo `main.py` o `scraping.py` ubicados en la carpeta `script-s`.
 
 3. **Menú Principal:**
 
@@ -57,3 +57,32 @@ python.exe -m pip install --upgrade pip
 - Asegúrate de tener una conexión a internet estable para realizar scraping correctamente.
 - El programa guarda los archivos de salida en la carpeta `output/data`.
 - Una vez cerrado el programa empiezas desde cero, asegúrate de guardar tus datos antes de salir.
+- Para leer y agregar un listado de URLs desde un archivo debes considerar lo siguiente:
+
+  - Para archivos de texto (.txt) el listado debe ir separado por un salto de línea (enter). Ejemplo:
+    ```txt
+    https://www.url1.com
+    https://www.url2.com
+    https://www.url3.com
+    ```
+  - Para archivos separados por comas (.csv) las URLs deben estar en una única columna. Ejemplo:
+    ```csv
+    URL
+    https://www.url1.com
+    https://www.url2.com
+    https://www.url3.com
+    ```
+  - Para archivos excel (.xlsx) el listado debe ir (al igual que en CSV) en una única columna, cada url ocupa una celda (o fila) hacia abajo. Ejemplo:
+    ```xlsx
+    +-----+-----+-------------------+
+    |     |  A  |        B          |
+    +-----+-----+-------------------+
+    |  1  | URL |                   |
+    +-----+-----+-------------------+
+    |  2  | https://www.url1.com    |
+    +-----+-----+-------------------+
+    |  3  | https://www.url2.com    |
+    +-----+-----+-------------------+
+    |  4  | https://www.url3.com    |
+    +-----+-----+-------------------+
+    ```
