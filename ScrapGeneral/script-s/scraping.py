@@ -468,11 +468,61 @@ def agregar_seccion_html():
             
             if not elements:
                 system('cls')
-                print(f"\nNo se encontraron elementos con el selector '{seccion}'. Por favor, intente con otro selector.")
+                print(f"\nNo se encontraron elementos con el selector '{seccion}'.\nPor favor, intente con otro selector.")
                 system("pause")
                 continue
             
             secciones_html.append(seccion)
+            system('cls')
+
+        except Exception as e:
+            print(f"Error al verificar la sección: {e}")
+            system("pause")
+            continue
+
+def agregar_clave_json():
+    system("cls")
+    if not urls:
+        print("\nNo hay URLs agregadas. Agregue una URL primero.\n")
+        system("pause")
+        agregar_urls()
+    
+    ver_formato = input("¿Desea ver el formato del resultado del request para elegir la clave?\nEscriba '1' para ver el formato (de lo contrario avanzará a agregar)\n\n-> ")
+    if ver_formato == "1":
+        url = urls[0]
+        mostrar_formato_respuesta(url, "json")
+        
+    while True:
+        system('cls')
+        if len(claves_json) > 0:
+            print(f'Claves agregadas: ')
+            for sec in claves_json:
+                print(f'- {sec}')
+        
+        clave = input("\nIngrese la clave de la sección JSON que desea scrapear (Enter para volver al menú)\nEjemplo:\n- 'MRData.RaceTable.Races.raceName'\n\n-> ").strip()
+
+        if clave == '':
+            return
+        
+        if clave in claves_json:
+            print("La clave JSON ya existe. Intente con una nueva.")
+            system("pause")
+            system('cls')
+
+        try:
+            print('\nBuscando sección... \n\n')
+            url = urls[0]
+            resp = requests.get(url)
+            json_data = resp.json()
+            elements = json_data.select(clave)
+
+            if not elements:
+                system('cls')
+                print(f"\nNo se encontraron elementos con el selector '{clave}'.\nPor favor, intente con otro selector.")
+                system("pause")
+                continue
+            
+            claves_json.append(clave)
             system('cls')
 
         except Exception as e:
@@ -505,35 +555,6 @@ def eliminar_seccion_html():
         except ValueError:
             print("\nIngrese un valor numérico válido.\n")
             system("pause")
-
-def agregar_clave_json():
-    system("cls")
-    if not urls:
-        print("\nNo hay URLs agregadas. Agregue una URL primero.\n")
-        system("pause")
-        agregar_urls()
-    
-    ver_formato = input("¿Desea ver el formato del resultado del request para elegir la clave?\nEscriba '1' para ver el formato (de lo contrario avanzará a agregar)\n\n-> ").lower()
-    if ver_formato == "1":
-        url = urls[0]
-        mostrar_formato_respuesta(url, "json")
-        
-    while True:
-        system('cls')
-        if len(claves_json) > 0:
-            print(f'Claves agregadas: ')
-            for sec in claves_json:
-                print(f'- {sec}')
-        
-        clave = input("\nIngrese la clave de la sección JSON que desea scrapear (Enter para volver al menú)\nEjemplo:\n- 'MRData.RaceTable.Races.raceName'\n\n-> ").strip()
-        if clave.lower() == '':
-            menu()
-        if clave in claves_json:
-            print("La clave JSON ya existe. Intente con una nueva.")
-            system("pause")
-            system('cls')
-        else:
-            claves_json.append(clave)
 
 def eliminar_clave_json():
     while True:
