@@ -15,7 +15,7 @@ def iniciar_scraping():
         menu()
     
     try:
-        formato = input("¿El sitio está en HTML o JSON?\nPor favor, digite el número\n1. html\n2. json\n *(Enter para volver)*\n\n-> ").lower()
+        formato = input("¿El sitio está en HTML o JSON?\n\nPor favor, digite el número\n1. html\n2. json\n\n *(Enter para volver)*\n\n-> ").lower()
         assert formato in ('1', '2', '')
 
         if formato == "1":
@@ -24,7 +24,8 @@ def iniciar_scraping():
                 system("pause")
                 menu()
             
-            print('\nRealizando scraping... \n')
+            system('cls')
+            print('\n\nRealizando scraping... \n')
 
             with tqdm(total=len(urls), desc="Procesando URLs", ncols=80) as pbar:
                 for url in urls:
@@ -47,8 +48,9 @@ def iniciar_scraping():
                 print("\nNo hay claves JSON agregadas para scrapear.")
                 system("pause")
                 menu()
-            
-            print('\nRealizando scraping... \n')
+
+            system('cls')
+            print('\n\nRealizando scraping... \n')
 
             with tqdm(total=len(urls), desc="Procesando URLs", ncols=80) as pbar:
                 for url in urls:
@@ -71,7 +73,7 @@ def iniciar_scraping():
         elif formato == '':
             menu()
         system('cls')
-        print("\nScraping completado.\n")
+        print("\nScraping completado.\nVolviendo al menú principal.\n")
             
     except (ValueError, AssertionError, KeyError):
         print("Error en el scraping de las URLs. Por favor, revise la entrada.")

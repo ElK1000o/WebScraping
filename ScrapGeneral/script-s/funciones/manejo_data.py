@@ -1,15 +1,44 @@
 import pandas as pd
+from beautifultable import BeautifulTable
 from os import system, makedirs, path
 from .almacenamiento import urls, secciones_html, claves_json, data
 
-def guardar_datos():
-    from .menu import menu
-    system("cls")
-    if not data:
-        print("\nNo hay datos para guardar.\n")
-        system("pause")
-        menu()
+def verData(data):
+    flat_data = aplanarData(data)
+    df = pd.DataFrame(flat_data)
     
+    while True:
+        system('cls')
+        ver = input('\n¿Desea ver los datos obtenidos?\nPulse 1 para SI (de lo contrario, sólo guardará)\n\n-> ')
+        if ver == '1':
+            system('cls')
+
+            tabla1 = BeautifulTable()
+            tabla1.columns.header = list(df.columns)
+            tabla2 = BeautifulTable()
+            tabla2.columns.header = list(df.columns)
+            total_filas = len(df)
+            
+            if total_filas > 10:
+                mostrar_filas_i = df.head(5)
+                mostrar_filas_f = df.tail(5)
+                for index, fila in mostrar_filas_i.iterrows():
+                    tabla1.rows.append(list(fila))
+                for index, fila in mostrar_filas_f.iterrows():
+                    tabla2.rows.append(list(fila))
+                print(f'Datos obtenidos (Mostrando primeros y últimos 5 de {total_filas} elementos): \n\n{tabla1}\n...\n{tabla2}\n')
+            else:
+                for index, fila in df.iterrows():
+                    tabla1.rows.append(list(fila))
+                print(f'Datos obtenidos (Mostrando primeros y últimos 5 de {total_filas} elementos): \n\n{tabla1}\n')
+
+            system('pause')
+            system('cls')
+            break
+        else:
+            break
+
+def aplanarData(data):
     flat_data = []
     headers = list(data[0].keys())
     
@@ -25,6 +54,21 @@ def guardar_datos():
                     flat_row[key] = None
             flat_data.append(flat_row)
 
+    return flat_data
+
+def guardar_datos():
+    from .menu import menu
+    system("cls")
+    if not data:
+        print("\nNo hay datos para guardar.\n")
+        system("pause")
+        menu()
+
+    verData(data)
+
+    flat_data = aplanarData(data)
+    headers = list(data[0].keys())
+
     while True:
         nombre = input("\nIngrese el nombre del archivo (sin extensión)\nConsidere que si tiene un archivo con el mismo nombre y extensión se sobrescribirá y lo perderá.\n\n *(Enter para volver al menú)*\n\n-> ")
         if nombre == '':
@@ -38,7 +82,7 @@ def guardar_datos():
         try:
             if formato in ["1", "2", "3"]:
                 script_dir = path.dirname(path.abspath(__file__))
-                output_dir = path.join(script_dir, "..", "output", "data")
+                output_dir = path.join(script_dir, "..", "..", "output", "data")
                 makedirs(output_dir, exist_ok=True)
 
                 headers_modificados = headers[:]

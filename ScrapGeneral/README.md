@@ -1,9 +1,11 @@
 # Herramienta para scraping
 
 ## Descripción
+
 Este programa permite realizar scraping de datos desde sitios web en HTML o JSON. Puedes agregar URLs y definir secciones específicas de HTML y claves de JSON para extraer datos estructurados.
 
 ## Requisitos
+
 - Python 3.x instalado.
 - Librerías necesarias:
   - requests
@@ -23,7 +25,7 @@ python.exe -m pip install --upgrade pip
 2. **Ejecución del Programa:**
 
 - Clona o descarga el repositorio.
-- Ejecuta el archivo `main.py` o `scraping.py` ubicados en la carpeta `script-s`.
+- Ejecuta el archivo `main.py` ubicado en la carpeta `script-s`.
 
 3. **Menú Principal:**
 
