@@ -60,7 +60,7 @@ def agregar():
             elif op == '3':
                 agregar_clave_json()
             elif op == '':
-                return
+                menu()
         except (ValueError, AssertionError):
             print("\nIngrese correctamente el valor.\n")
             system("pause")
@@ -110,7 +110,7 @@ def agregar_urls():
             elif op == '3':
                 leer_lista_urls()
             elif op == '':
-                return
+                agregar()
         except (ValueError, AssertionError):
             print("\nIngrese correctamente el valor.\n")
             system("pause")

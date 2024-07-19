@@ -5,14 +5,14 @@ from os import system
 from .almacenamiento import data, secciones_html, claves_json, urls
 
 def iniciar_scraping():
-    from .menu import menu
+    from .menu import menu, agregar_urls
     system("cls")
     global data
 
     if not urls:
         print("\nNo hay URLs agregadas para scrapear.\n")
         system("pause")
-        menu()
+        agregar_urls()
     
     try:
         formato = input("¿El sitio está en HTML o JSON?\n\nPor favor, digite el número\n1. html\n2. json\n\n *(Enter para volver)*\n\n-> ").lower()
