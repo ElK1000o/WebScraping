@@ -12,6 +12,7 @@ Este programa permite realizar scraping de datos desde sitios web en HTML o JSON
   - BeautifulSoup
   - pandas
   - tqdm
+  - beautifultable
 
 ## Instrucciones de Uso
 

@@ -1,6 +1,7 @@
 # WebScraping
 
 ## Descripción
+
 Este repositorio contiene herramientas para realizar scraping de datos desde sitios web en HTML o JSON. Incluye un caso específico para el scraping de productos lácteos del supermercado Jumbo y una herramienta general para scraping de HTML y JSON.
 
 ## Estructura del Repositorio
@@ -8,7 +9,8 @@ Este repositorio contiene herramientas para realizar scraping de datos desde sit
 El repositorio está organizado en las siguientes carpetas:
 
 - **ScrapGeneral/**: Herramienta general para scraping de HTML y JSON.
-  - **py**: Carpeta que contiene el script principal.
+
+  - **script-s**: Carpeta que contiene el script principal.
   - **README.md**: Instrucciones específicas para esta herramienta.
   - **output/**: Carpeta para los datos generados por la herramienta general.
     - **data/**: Datos en formato CSV o XLSX.
@@ -24,18 +26,19 @@ El repositorio está organizado en las siguientes carpetas:
 
 - Python 3.x instalado.
 - Librerías necesarias:
-    - requests
-    - beautifulsoup4
-    - pandas
-    - jupyter
-    - tqdm
+  - requests
+  - beautifulsoup4
+  - pandas
+  - jupyter
+  - tqdm
+  - beautifultable
 
 ## Instalación de Librerías
 
 Para instalar las librerías necesarias, ejecuta el siguiente comando:
 
 ```bash
-pip install requests beautifulsoup4 pandas jupyter tqdm
+pip install requests beautifulsoup4 pandas jupyter tqdm beautifultable
 python.exe -m pip install --upgrade pip
 ```
 
