@@ -5,7 +5,7 @@ from os import system
 from .almacenamiento import data, secciones_html, claves_json, urls
 
 def iniciar_scraping():
-    from .menu import menu, agregar_urls
+    from .menu import menu, agregar_urls, agregar_clave_json, agregar_seccion_html
     system("cls")
     global data
 
@@ -20,9 +20,10 @@ def iniciar_scraping():
 
         if formato == "1":
             if not secciones_html:
+                system('cls')
                 print("\nNo hay secciones HTML agregadas para scrapear.\n")
                 system("pause")
-                menu()
+                agregar_seccion_html()
             
             system('cls')
             print('\n\nRealizando scraping... \n')
@@ -45,9 +46,10 @@ def iniciar_scraping():
 
         elif formato == "2":
             if not claves_json:
-                print("\nNo hay claves JSON agregadas para scrapear.")
+                system('cls')
+                print("\nNo hay claves JSON agregadas para scrapear.\n")
                 system("pause")
-                menu()
+                agregar_clave_json()
 
             system('cls')
             print('\n\nRealizando scraping... \n')

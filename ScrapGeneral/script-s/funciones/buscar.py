@@ -19,7 +19,7 @@ def mostrar_formato_respuesta(url, formato):
     system("pause")
 
 def agregar_seccion_html():
-    from .menu import agregar_urls
+    from .menu import agregar_urls, menu
     system("cls")
     if not urls:
         print("\nNo hay URLs agregadas. Agregue una URL primero.\n")
@@ -40,7 +40,7 @@ def agregar_seccion_html():
         
         seccion = input("\nIngrese el selector de la sección HTML que desea scrapear (Enter para volver)\nEjemplo:\n- 'a.product-card-name'\n- 'span.prices-main-price'\n\n-> ")
         if seccion == '':
-            return
+            menu()
         
         if seccion in secciones_html:
             print("La sección ya ha sido agregada. Por favor, ingrese una nueva sección.")
@@ -69,7 +69,7 @@ def agregar_seccion_html():
             continue
 
 def agregar_clave_json():
-    from .menu import agregar_urls
+    from .menu import agregar_urls, menu
     system("cls")
     if not urls:
         print("\nNo hay URLs agregadas. Agregue una URL primero.\n")
@@ -91,7 +91,7 @@ def agregar_clave_json():
         clave = input("\nIngrese la clave de la sección JSON que desea scrapear (Enter para volver al menú)\nEjemplo:\n- 'MRData.RaceTable.Races.raceName'\n\n-> ").strip()
 
         if clave == '':
-            return
+            menu()
         
         if clave in claves_json:
             print("La clave JSON ya existe. Intente con una nueva.")

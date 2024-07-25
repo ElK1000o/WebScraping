@@ -3,6 +3,7 @@ from .manejo_urls import agregar_url, generar_urls, leer_lista_urls, listar_urls
 from .scrap import iniciar_scraping
 from .manejo_data import guardar_datos, limpiar_programa
 from .buscar import agregar_clave_json, agregar_seccion_html, eliminar_clave_json, eliminar_seccion_html
+from .cargar_db import guardar_datos_bbdd
 
 def menu():
     while True:
@@ -31,7 +32,7 @@ def menu():
             elif op == 4:
                 iniciar_scraping()
             elif op == 5:
-                guardar_datos()
+                guardar()
             elif op == 6:
                 limpiar_programa()
             elif op == 7:
@@ -114,9 +115,25 @@ def agregar_urls():
         except (ValueError, AssertionError):
             print("\nIngrese correctamente el valor.\n")
             system("pause")
-        
+
+def guardar():
+    while True:
+        system('cls')
+        try:
+            op=input('¿De qué forma deseas guardar tus datos?\n1. En un archivo.\n2. En una Base de Datos (SQL).\n\n *(Enter para volver atrás)*\n\n-> ')
+            assert op in ('1', '2', '')
+            if op == '':
+                menu()
+            elif op == '1':
+                guardar_datos()
+            elif op == '2':
+                guardar_datos_bbdd()
+        except (ValueError, AssertionError):
+            system('cls')
+            print("\nIngrese correctamente el valor.\n")
+            system('pause')
+
 def salir():
-    system('cls')
     while True:
         system('cls')
         try:

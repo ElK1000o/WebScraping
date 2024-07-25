@@ -46,9 +46,18 @@ python.exe -m pip install --upgrade pip
 
 5. **Guardar Datos:**
 
-- Define un nombre para el archivo de salida.
-- Escoge el formato de archivo (CSV, Excel o ambos).
-- Opcionalmente, personaliza los encabezados de las columnas.
+Puedes guardar tus datos en una Base de Datos (SQL) o en un archivo:
+
+- Base de Datos (SQL):
+
+  - Debes tener creada de antemano la DB con su respectiva tabla y columnas.
+  - Define las credenciales de inicio (host, usuario, contraseña y nombre de DB).
+  - Indica el nombre de la tabla y columnas en que insertarás los datos (Considera que las columnas debes agregarlas en el mismo orden en que las buscaste al agregar sección HTML o clave JSON).
+
+- Archivo:
+  - Define un nombre para el archivo de salida.
+  - Escoge el formato de archivo (CSV, Excel o ambos).
+  - Opcionalmente, personaliza los encabezados de las columnas.
 
 6. **Ejemplos:**
 
