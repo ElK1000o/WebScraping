@@ -32,13 +32,14 @@ El repositorio está organizado en las siguientes carpetas:
   - jupyter
   - tqdm
   - beautifultable
+  - pymysql
 
 ## Instalación de Librerías
 
 Para instalar las librerías necesarias, ejecuta el siguiente comando:
 
 ```bash
-pip install requests beautifulsoup4 pandas jupyter tqdm beautifultable
+pip install requests beautifulsoup4 pandas jupyter tqdm beautifultable pymysql
 python.exe -m pip install --upgrade pip
 ```
 
