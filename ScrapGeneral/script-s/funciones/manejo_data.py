@@ -1,6 +1,6 @@
 import pandas as pd
 from beautifultable import BeautifulTable
-from os import system, makedirs, path
+from os import system, path
 from .almacenamiento import urls, secciones_html, claves_json, data
 
 def verData(data):
@@ -83,7 +83,6 @@ def guardar_datos():
             if formato in ["1", "2", "3"]:
                 script_dir = path.dirname(path.abspath(__file__))
                 output_dir = path.join(script_dir, "..", "..", "output", "data")
-                makedirs(output_dir, exist_ok=True)
 
                 headers_modificados = headers[:]
 

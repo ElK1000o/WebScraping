@@ -68,6 +68,7 @@ Puedes guardar tus datos en una Base de Datos (SQL) o en un archivo:
 7. **Notas:**
 
 - Asegúrate de tener una conexión a internet estable para realizar scraping correctamente.
+- Al ejecutar el programa, se generarán automáticamente las carpetas `ListasURL` (Para agregar listado de URLs) y `output/data`.
 - El programa guarda los archivos de salida en la carpeta `output/data`.
 - Una vez cerrado el programa empiezas desde cero, asegúrate de guardar tus datos antes de salir.
 - Para leer y agregar un listado de URLs desde un archivo debes considerar lo siguiente:

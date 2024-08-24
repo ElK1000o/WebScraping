@@ -1,4 +1,4 @@
-from os import system, makedirs, listdir, path
+from os import system, listdir, path
 import pandas as pd
 from .almacenamiento import urls
 
@@ -95,7 +95,6 @@ def leer_lista_urls():
     try:
         script_dir = path.dirname(path.abspath(__file__))
         directorio_listas = path.join(script_dir, "..", "..", "ListasURL")
-        makedirs(directorio_listas, exist_ok=True)
 
         archivos = [arch for arch in listdir(directorio_listas) if arch.endswith(('.csv', '.txt', '.xlsx'))]
 
