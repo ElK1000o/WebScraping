@@ -14,13 +14,14 @@ Este programa permite realizar scraping de datos desde sitios web en HTML o JSON
   - tqdm
   - beautifultable
   - pymysql
+  - openpyxl
 
 ## Instrucciones de Uso
 
 1. **Instalación de Librerías:**
 
 ```bash
-pip install requests beautifulsoup4 pandas tqdm beautifultable pymysql
+pip install requests beautifulsoup4 pandas tqdm beautifultable pymysql openpyxl
 python.exe -m pip install --upgrade pip
 ```
 

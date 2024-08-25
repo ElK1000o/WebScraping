@@ -1,7 +1,7 @@
 from os import system, makedirs, path
 
 def GenerarCarpetas():
-    system('cls')  # Limpia la pantalla en la consola
+    system('cls') 
     script_dir = path.dirname(path.abspath(__file__))
     
     # Carpeta ListasURL

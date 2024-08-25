@@ -67,6 +67,7 @@ def generar_urls():
 
             system('cls')
             print(f"\n\nRango: ({paginas})\nURL base: {inicio}\nContinuación URL: {final}\n\nURLs generadas:\n")
+            system('cls')
             for url in url_gen:
                 print(url)
 
