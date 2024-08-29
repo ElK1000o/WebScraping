@@ -34,3 +34,6 @@ def GenerarCarpetas():
     if creado:
         print('')
         system('pause')
+    else:
+        print('\nCarpetas verificadas.\nComenzando programa.\n')
+        system('pause')
