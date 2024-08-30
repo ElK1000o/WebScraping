@@ -92,10 +92,15 @@ def generar_urls():
             system('pause')
 
 def leer_lista_urls():
-    from .menu import menu
+    from .menu import menu, agregar_urls
     try:
         script_dir = path.dirname(path.abspath(__file__))
         directorio_listas = path.join(script_dir, "..", "..", "ListasURL")
+
+        if not path.exists(directorio_listas):
+            print("No se encontró la carpeta 'ListasURL'.\nNo existe o se modificó.\nVolviendo a 'AGREGAR URLS'.\n")
+            system("pause")
+            agregar_urls()
 
         archivos = [arch for arch in listdir(directorio_listas) if arch.endswith(('.csv', '.txt', '.xlsx'))]
 

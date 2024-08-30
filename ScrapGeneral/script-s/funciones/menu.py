@@ -4,6 +4,7 @@ from .scrap import iniciar_scraping
 from .manejo_data import guardar_datos, limpiar_programa
 from .buscar import agregar_clave_json, agregar_seccion_html, eliminar_clave_json, eliminar_seccion_html
 from .cargar_db import guardar_datos_bbdd
+from .almacenamiento import data
 
 def menu():
     while True:
@@ -119,6 +120,12 @@ def agregar_urls():
 def guardar():
     while True:
         system('cls')
+        
+        if not data:
+            print("\nNo hay datos para guardar.\n")
+            system("pause")
+            menu()
+
         try:
             op=input('¿De qué forma deseas guardar tus datos?\n1. En un archivo.\n2. En una Base de Datos (SQL).\n\n *(Enter para volver atrás)*\n\n-> ')
             assert op in ('1', '2', '')

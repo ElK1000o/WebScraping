@@ -36,6 +36,7 @@ def verData(data):
             system('cls')
             break
         else:
+            system('cls')
             break
 
 def aplanarData(data):
@@ -57,12 +58,16 @@ def aplanarData(data):
     return flat_data
 
 def guardar_datos():
-    from .menu import menu
+    from .menu import menu, guardar
     system("cls")
-    if not data:
-        print("\nNo hay datos para guardar.\n")
+
+    script_dir = path.dirname(path.abspath(__file__))
+    output_dir = path.join(script_dir, "..", "..", "output", "data")
+
+    if not path.exists(output_dir):
+        print("No se encontró la carpeta 'output/data'.\nNo existe o se modificó.\nVolviendo a 'GUARDAR'.\n")
         system("pause")
-        menu()
+        guardar()
 
     verData(data)
 
@@ -81,8 +86,6 @@ def guardar_datos():
         system('cls')
         try:
             if formato in ["1", "2", "3"]:
-                script_dir = path.dirname(path.abspath(__file__))
-                output_dir = path.join(script_dir, "..", "..", "output", "data")
 
                 headers_modificados = headers[:]
 
