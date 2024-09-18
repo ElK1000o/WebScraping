@@ -6,6 +6,8 @@ from .almacenamiento import data, secciones_html, claves_json, urls
 
 def iniciar_scraping():
     from .menu import menu, agregar_urls, agregar_clave_json, agregar_seccion_html
+    from .rev_robots import VerificarRobots
+
     system("cls")
     global data
 
@@ -14,6 +16,8 @@ def iniciar_scraping():
         system("pause")
         agregar_urls()
     
+    VerificarRobots()
+
     try:
         formato = input("¿El sitio está en HTML o JSON?\n\nPor favor, digite el número\n1. html\n2. json\n\n *(Enter para volver)*\n\n-> ").lower()
         assert formato in ('1', '2', '')

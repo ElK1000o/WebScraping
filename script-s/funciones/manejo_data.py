@@ -80,7 +80,7 @@ def guardar_datos():
             menu()
         system('cls')
         print(f'\nNombre del archivo: {nombre}\n')
-        formato = input("\nIngrese el formato de archivo\nDigite el numero:\n1. csv\n2. xlsx\n3. ambos\n\n *(Enter para volver al menú)*\n\n-> ").lower()
+        formato = input("Ingrese el formato de archivo\nDigite el numero:\n1. csv\n2. xlsx\n3. ambos\n\n *(Enter para volver al menú)*\n\n-> ").lower()
         if formato == '':
             menu()
         system('cls')

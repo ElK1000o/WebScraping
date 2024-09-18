@@ -48,7 +48,7 @@ def agregar_seccion_html():
             continue
 
         try:
-            print('\nBuscando sección... \n\n')
+            print('\nEvaluando sección... \n\n')
             url = urls[0]
             resp = requests.get(url)
             soup = BeautifulSoup(resp.text, 'html.parser')
@@ -99,7 +99,7 @@ def agregar_clave_json():
             system('cls')
 
         try:
-            print('\nBuscando sección... \n\n')
+            print('\nEvaluando clave... \n\n')
             url = urls[0]
             resp = requests.get(url)
             json_data = resp.json()
