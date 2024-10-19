@@ -7,6 +7,7 @@ import time
 from .almacenamiento import urls
 
 def VerificarRobots(user_agent='*'):
+    from .menu import menu
     system('cls')
     try:
         print("\nSe procederá a revisar el archivo 'robots.txt' \npara evaluar autorización de las URLs agregadas. \n")
@@ -43,15 +44,20 @@ def VerificarRobots(user_agent='*'):
 
         if no_permitidos:
             print(f'Las siguientes URLs no pueden ser scrapeadas: {no_permitidos}\n\nDeberías eliminarlas de tu lista.')
+            system('pause')
+            menu()
         else:
             print('Todas las URLs pueden ser scrapeadas.')
 
     except urllib.error.URLError as e:
         print(f'Error de URL: {e.reason}')
+        menu()
     except UnicodeDecodeError:
         print('Error de codificación del archivo robots.txt')
+        menu()
     except Exception as e:
         print(f'Error inesperado: {e}')
+        menu()
     print('')
     system('pause')
     system('cls')

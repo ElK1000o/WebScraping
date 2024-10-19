@@ -127,6 +127,7 @@ def guardar_datos():
             print(f'Error al guardar los datos \nNúmero de error: {e}')
             system('pause')
             system('cls')
+        menu()
 
 def limpiar_programa():
     system('cls')
@@ -135,5 +136,5 @@ def limpiar_programa():
     secciones_html.clear()
     claves_json.clear()
     data.clear()
-    print("\nPrograma limpiado.\nSe han eliminado todas las URLs, secciones HTML y claves JSON.\nPuede realizar búsqueda nueva desde cero\n")
+    print("\nPrograma limpiado.\nSe han eliminado todos los datos guardados, URLs, secciones HTML y claves JSON.\nPuede realizar búsqueda nueva desde cero\n")
     system("pause")
